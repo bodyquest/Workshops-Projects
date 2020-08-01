@@ -1,0 +1,14 @@
+<nav>
+      <ul>
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/cinema">Cinema</a></li>
+        {{#if loggedIn}}
+            <li><a href="#">Add Movie</a></li>
+            <li><a href="#">My Movies</a></li>
+            <li class="right"><a href="#/logout">Logout</a></li>
+            <li class="right">Welcome, user!</li>
+        {{/if}}
+        <li class="right"><a href="#/register">Register</a></li>
+        <li class="right"><a href="#/login">Login</a></li>
+      </ul>
+</nav>
