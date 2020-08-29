@@ -10,46 +10,18 @@
   <h1>Pop-up Widget - Component</h1>
 
   <template id="popup-template">
-    <style>
-      .wrapper {
-        position: relative;
-      }
-
-      .info {
-        font-size: 0.8rem;
-        width: 200px;
-        display: inline-block;
-        border: 1px solid black;
-        padding: 10px;
-        background: white;
-        border-radius: 10px;
-        opacity: 0;
-        transition: 0.6s all;
-        position: absolute;
-        bottom: 20px;
-        left: 10px;
-        z-index: 3;
-      }
-
-      img {
-        width: 1.2rem;
-      }
-
-      .icon:hover + .info, .icon:focus + .info {
-        opacity: 1;
-      }
-    </style>
-    <span class="wrapper">
-      <span class="icon" tabindex="0">
-        <img src="POPUP ALT IMAGE URL">
-      </span>
-
-      <span class="info">
-        POPUP TEXT
-      </span>
-    </span>
+    
   </template>
 
+  <label>
+    Enter your CVC
+    <pop-up>
+      <img src="./img/info.png" slot="icon">
+      <span slot="info"> Your card validation code (CVC) is an extra security feature - it is the last 3 or 4 numbers on the back of your card.</span>
+    </pop-up>
+  </label>
+  <input/>
+  <script src="main.js" type="module"></script>
 </body>
 
 </html>
