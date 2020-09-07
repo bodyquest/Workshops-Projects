@@ -2,6 +2,10 @@ ul {
     list-style-type: none;
 }
 
+li.closed > ul {
+    display: none;
+}
+
 li::before {
     display:inline-block;
     width: 1rem;
@@ -10,23 +14,24 @@ li::before {
     content:"";
 }
 
-.open::before,
-.closed::before {
-    background-size: 1rem 1rem;
-    position: relative;
-    top: 0.25rem;
-    opacity: 0.3;
-}
-
-.open::before {
-    background-image: url(img/down.png);
-}
-
-.closed::before {
+li.closed::before {
     background-image: url(img/right.png);
+    content: "";
+    width: 13px;
+    height: 13px;
+    background-size: cover;
+    position: absolute;
+    margin-left: -15px;
+    margin-top: 2px;
 }
 
-.closed .closed::before,
-.closed .open::before {
-    display: none;
+li.open::before {
+    background-image: url(img/down.png);
+    content: "";
+    width: 13px;
+    height: 13px;
+    background-size: cover;
+    position: absolute;
+    margin-left: -15px;
+    margin-top: 2px;
 }
