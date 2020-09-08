@@ -1,4 +1,4 @@
-import { html, render } from '../node_modules/lit-html/lit-html.js';
+import { html, render } from './node_modules/lit-html/lit-html.js';
 
 const sliderHTMLTemplate = (ctx) => html`
 <style>
@@ -59,46 +59,54 @@ const sliderHTMLTemplate = (ctx) => html`
 </div>
 `
 class Slider extends HTMLElement {
+
+    static get observedAttributes() {
+        return ["step", "slider-value", "is-inverted"];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name === "slider-value") {
+            name = "value";
+        }
+        if (name === "is-inverted") {
+            name = "isInverted";
+        }
+
+        this.state[name] = newValue;
+
+        if (
+            (name === "isInverted" && newValue ==="true") || (name === "value" && this.state.isInverted === "true")) {
+            const value = 100 - Number(this.state.value || '0');
+            this.state.value = value;
+        }
+
+        this._update();
+    };
+
     constructor() {
-        super()
+        super();
 
         this.state = {
-            step: this.step,
-            value: this.value,
-            percentage: this.percentage,
+            step: "0.01",
+            value: "0",
+            percentage: null,
             sliderInputHandler: this.sliderInputHandler
         }
 
+        this.state.percentage = this.percentage;
         this.root = this.attachShadow({ mode: 'closed' });
 
         this._update();
     }
 
-
-    get step() {
-        return this.getAttribute('step') || '0.1';
-    }
-
-    get value() {
-        if (this.isInverted) {
-            return 100 - Number(this.getAttribute('slider-value') || '0')
-        }
-
-        return this.getAttribute('slider-value') || '0';
-    }
-
     get percentage() {
-        let calcPercentage = Number(this.value) / 100 * 100;
+        let calcPercentage = Number(this.state.value) / 100 * 100;
 
-        if (this.isInverted) {
-            calcPercentage = (100 - Number(this.value)) / 100 * 100
+        if (this.state.isInverted) {
+            calcPercentage = (100 - Number(this.state.value)) / 100 * 100
         }
 
         return `${calcPercentage.toFixed(2)} %`
-    }
-
-    get isInverted() {
-        return this.hasAttribute('invert');
     }
 
     sliderInputHandler(e) {
