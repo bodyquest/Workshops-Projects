@@ -1,0 +1,6 @@
+obj
+bin
+appsettings.json
+GlobalConstants.cs
+*.db
+*.rdb

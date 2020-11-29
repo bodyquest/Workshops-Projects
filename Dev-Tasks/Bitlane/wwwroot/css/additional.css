@@ -1,0 +1,316 @@
+﻿a,
+a:hover{
+    text-decoration: none
+}
+
+.page-container {
+    display: flex;
+    width: 100%;
+    min-height:75vh; 
+    margin: 2em auto 0 auto;
+    flex-flow: column wrap;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+    .page-container > section {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center
+    }
+
+.search-field {
+    display: inline-flex;
+    flex: 0 0 20%;
+    min-width: 320px;
+    background: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    margin-top: 2em;
+    margin-left: 8em;
+    height: 2.5em;
+    align-items: center;
+    padding: 5px;
+    border-radius: 0.5em;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    position: relative;
+}
+
+.search-field:hover,
+.search-field:active,
+.search-field:focus {
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+    border-color: rgba(223,225,229,0);
+    // 0 2.8px 2.2px rgba(0, 0, 0, 0.034), // 0 6.7px 5.3px rgba(0, 0, 0, 0.048), // 0 12.5px 10px rgba(0, 0, 0, 0.06), // 0 22.3px 17.9px rgba(0, 0, 0, 0.072), // 0 41.8px 33.4px rgba(0, 0, 0, 0.086), // 0 100px 80px rgba(0, 0, 0, 0.12);
+    transition: 0.3s;
+}
+
+    .search-field input {
+        flex: 1;
+        background: transparent;
+        border: 0;
+        text-indent: 5px;
+        font-size: 20px;
+        color: #777;
+        font-family: Arial, Helvetica, sans-serif;
+        outline: none;
+    }
+
+    .search-field .search-btn {
+        border: 0;
+        background-color: transparent;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0.1em 0 0 0.3em;
+        order: -1;
+        outline: none;
+    }
+
+.fa-search, .fa-search:active, .fa-search:focus {
+    font-size: 1.5em;
+    color: rgba(120, 120, 120, 0.3);
+}
+
+.search-field .reset-btn {
+    border: 0;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    order: 2;
+
+    outline: none;
+}
+
+.search-field .fa-times {
+    font-size: 1.5em;
+    color: rgba(119, 119, 119, 0.3);
+
+    outline: none;
+}
+
+.title-and-upload {
+    min-width: 320px;
+    text-align: center;
+    margin-top: 2.4em;
+}
+
+.title-and-upload > h2{
+}
+
+    .title-and-upload > .upload-btn {
+        text-transform: uppercase;
+        color: white;
+        background: #241a48;
+        border: none;
+        border-radius: 0.3em;
+        padding: 0.5em 2em 0.5em 1.5em;
+        box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.2);
+        font-weight: 700;
+        text-decoration: none;
+        margin: 0
+    }
+        .title-and-upload > .upload-btn:hover {
+            background: #ff650b;
+        }
+.download-btn,
+.login-button {
+    color: white;
+    background: #241a48;
+    border: none;
+    border-radius: 0.3em;
+    padding: 0.5em 2em 0.5em 1.5em;
+    box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    text-decoration: none;
+    margin: 0;
+    outline: none;
+    flex: 0 0 60%
+    /*width: 100%*/
+}
+
+a.download-btn:hover {
+    color: white
+}
+    .download-btn > strong {
+        color: white;
+    }
+
+.download-btn:hover,
+.login-button:hover {
+    background: #ff650b;
+}
+
+    table {
+        width: 100%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        border-radius: 0.3em;
+    }
+
+.data-table {
+    margin: 2em auto;
+}
+
+table,
+td,
+th {
+    border: 1px solid #ccc;
+}
+
+thead > tr > th,
+tbody > tr > td {
+    padding: 0.4em;
+}
+
+table > thead {
+    color: white;
+    background: #241a48;
+    text-align: left;
+}
+
+tbody > tr:nth-child(odd) {
+    background: #eee;
+}
+
+tbody > tr:nth-child(even) {
+    background: #fff;
+}
+
+.upload-card {
+    box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+body::after {
+    content: "";
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background-image: url(../img/wallpaperflare.com_wallpaper.jpg);
+    background-position: center;
+}
+
+/*#Document {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+}*/
+
+/*.fileinput.input-group .form-control {
+    display: table;
+    white-space: pre-line;
+    word-break: break-all;
+}*/
+.details {
+    border: 0;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0.1em 0 0 0;
+    outline: none;
+}
+
+.fa-download {
+    font-size: 1.3em;
+    color: rgba(119, 119, 119, 0.5);
+    outline: none;
+}
+
+tbody > tr > td:last-of-type,
+tbody > tr> td:nth-child(4){
+    text-align: center;
+}
+
+.fa-file-pdf-o
+ {
+    font-size: 1.3em;
+    color: rgba(119, 119, 119, 0.8);
+    outline: none;
+}
+
+header {
+    background-color: #241a48;
+}
+
+#brand, #id-link {
+    color: white
+}
+
+#brand:hover {
+    color:#ff650b
+}
+
+.card-header {
+    background-color: #241a48;
+}
+
+    #id-link:hover {
+        color: #ff650b
+    }
+
+.details-data {
+    display: flex;
+   flex-flow: column wrap;
+   align-content: center
+}
+
+.buttons-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.buttons-wrapper > .download-btn.left {
+   margin-left: 3em;
+}
+a.download-btn.left > i.fa.fa-download {
+        color: white;
+        margin-right: 0.8em;
+}
+
+.download-btn.right {
+    text-align: center;
+}
+
+a.download-btn.right > i.fa.fa-eye {
+    color: white;
+    margin-right: 0.8em;
+}
+
+.login-container {
+    display: flex;
+}
+
+    .login-container > .login-button {
+        flex: 0 0 100%
+    }
+
+.doc-title > h4 {
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+.modal-header {
+    background: #241a48;
+    cursor: pointer;
+}
+    .modal-header h5 {
+        color: white;
+    }
+
+        .modal-header h5:hover {
+            cursor: pointer;
+            color: #ff650b;
+        }
+.doc-title > h4 {
+    margin-bottom: 1.5em;
+}

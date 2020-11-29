@@ -1,0 +1,89 @@
+﻿@model AdminDocumentDownloadViewModel
+@using System.Linq;
+@using System.Collections.Generic;
+@{
+    this.ViewData["Title"] = "Document details";
+    var doc = Convert.ToBase64String(Model.Document);
+}
+
+    <section class="container-fluid">
+        <article>
+            <section class="details-data">
+                <div class="doc-title">
+                    <h4>@Model.Title</h4>
+                </div>
+                <div class="buttons-wrapper">
+                    @if (Model.Title.EndsWith("pdf"))
+                    {
+                        <a href="#_@Model.Id"
+                           role="button"
+                           data-toggle="modal"
+                           class="download-btn right"
+                           >
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            View
+                        </a>
+                    }
+
+                    <a asp-action="DownloadFile"
+                       asp-route-requestid="@Model.Id"
+                       class="download-btn left"
+                       style="flex: 0 0 100%">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <strong>Download File</strong>
+                    </a>
+                </div>
+            </section>
+
+
+            <div id="_@Model.Id" class="modal fade" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered"
+                     style="width: auto;max-width: 650px;">
+                    <div class="modal-content text-center">
+                        <div class="modal-header pl-4">
+                            <h5 class="modal-title text-bold">Document Content</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h2>@Model.Title</h2>
+                            @if (Model.Title.EndsWith("pdf"))
+                            {
+                                <embed type="application/pdf"
+                                       width="600"
+                                       height="850"
+                                       src="data:application/pdf;base64,@doc" />
+                            }
+                            else if (Model.Title.EndsWith("doc"))
+                            {
+                                <embed type="application/msword"
+                                       width="600"
+                                       height="850"
+                                       src="data:application/msword;base64,@doc" />
+                            }
+                            else if (Model.Title.EndsWith("docx"))
+                            {
+                                <embed type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                       width="600"
+                                       height="850"
+                                       src="data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,@doc" />
+                            }
+                            else if (Model.Title.EndsWith("xls"))
+                            {
+                                <embed type="application/vnd.ms-excel"
+                                       width="600"
+                                       height="850"
+                                       src="data:application/vnd.ms-excel;base64,@doc" />
+                            }
+                            else if (Model.Title.EndsWith("xlsx"))
+                            {
+                                <embed type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                                       width="600"
+                                       height="850"
+                                       src="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,@Model.Document" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
