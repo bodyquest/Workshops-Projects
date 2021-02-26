@@ -18,7 +18,15 @@ variables:
 
 steps:
 - task: DotNetCoreCLI@2
+  displayName: Build
   inputs:
-    command: 'build' 
-    projects: '**/*Blog.Web/*.csproj'
+    command: build 
+    projects: '**/Blog.sln'
+    arguments: '--configuration $(buildConfiguration)'
+	
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: test 
+    projects: '**/*Test/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
