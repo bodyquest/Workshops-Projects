@@ -16,6 +16,11 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+ 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build' 
+    projects: 'Workshops-Projects/AzurePipelines/Blog.Web/Blog.Web.scproj'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
