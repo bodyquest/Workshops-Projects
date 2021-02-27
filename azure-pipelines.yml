@@ -18,9 +18,9 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
-    command: build 
-    projects: '**/Blog.sln'
-    arguments: '--configuration $(buildConfiguration)'
+	command: build 
+	projects: '**/Blog.sln'
+	arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: Test
@@ -33,14 +33,14 @@ steps:
   displayName: Publish
   inputs:
     command: publish
-    publishWebProjects: False
-	projects: '**/Blog.Web.csproj'
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
+	publishWebProjects: False
+	projects: '**/*Web/*.csproj'
+	arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+	zipAfterPublish: True
 
 # this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
 - task: PublishBuildArtifacts@1
   displayName: Artifact
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'PipelinesBlog'
+	pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+	artifactName: 'PipelinesBlog'
