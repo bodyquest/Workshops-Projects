@@ -18,21 +18,21 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
-	command: build 
+	command: 'build'
 	projects: '**/Blog.sln'
 	arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: Test
   inputs:
-    command: test 
+    command: 'test'
     projects: '**/*Test/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: Publish
   inputs:
-    command: publish
+    command: 'publish'
 	publishWebProjects: False
 	projects: '**/*Web/*.csproj'
 	arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
@@ -42,5 +42,5 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: Artifact
   inputs:
-	pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+	pathtoPublish: '$(Build.ArtifactStagingDirectory)'
 	artifactName: 'PipelinesBlog'
