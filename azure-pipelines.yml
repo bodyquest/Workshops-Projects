@@ -33,10 +33,10 @@ steps:
   displayName: Publish
   inputs:
     command: publish
-	projects: '**/*Web/*.csproj'
-    publishWebProjects: false
+    publishWebProjects: False
+	projects: '**/Blog.Web.csproj'
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: true
+    zipAfterPublish: True
 
 # this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
 - task: PublishBuildArtifacts@1
