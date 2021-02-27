@@ -18,7 +18,7 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
-	command: 'build'
+    command: 'build'
 	projects: '**/Blog.sln'
 	arguments: '--configuration $(buildConfiguration)'
 
